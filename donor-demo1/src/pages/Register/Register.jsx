@@ -30,8 +30,10 @@ const Register = () => {
   const buttonUserClick = async (name, mail, password) => {
     try {
       const response = await createUser(name, mail, password);
-      if (response) {
+      if (response.success) {
         navigate("/Profile");
+      } else {
+        alert("Ошибка: " + response.error)
       }
       clearInputs();
     } catch (error) {
@@ -43,8 +45,10 @@ const Register = () => {
     try {
       const response = await createClinic(name, adress, mail, password);
       console.log(response)
-      if (response) {
+      if (response.success) {
         navigate("/Profile");
+      } else {
+        alert("Ошибка: " + response.error)
       }
       clearInputs();
     } catch (error) {

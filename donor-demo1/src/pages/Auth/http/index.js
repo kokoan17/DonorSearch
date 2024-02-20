@@ -14,8 +14,8 @@ export const checkLoginForm = async (mail, password) => {
         },
       }
     );
-    return true
+    return {success: true}
   } catch (error) {
-    return false;
+    return {success: false, error: error};
   }
 };

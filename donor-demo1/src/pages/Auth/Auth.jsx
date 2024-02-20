@@ -30,8 +30,10 @@ const Auth = () => {
     try {
       const response = await checkLoginForm(mail, password);
       console.log(response);
-      if (response) {
+      if (response.success) {
         navigate("/Profile")
+      } else {
+        alert("Ошибка: " + response.error)
       }
       clearInputs();
     } catch (error) {
